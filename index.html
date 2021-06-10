@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <title>IP Address Tracker</title>
+</head>
+
+<body>
+    <main class="main">
+        <!-- *Header and Input -->
+        <header class="header">
+            <h1 class="main__title title--center">IP Address Tracker</h1>
+            <label for="trace-ip" class="main__input__label">
+                <input type="search" class="main__input" id="trace-ip" aria-label="Trace IP"
+                    placeholder="Search for any IP">
+                <button id="search-btn"><img src="images/icon-arrow.svg" alt="" class="search-icon"></button>
+            </label>
+        </header>
+
+        <!-- *HUD -->
+        <div id="card">
+            <div id="hud" class="row">
+                <div class="hud__info text--center">
+                    <h3 class="info__title gray--text">IP ADRESS</h3>
+                    <h2 class="info__result result--text" id="ip-address">Fetching Data...</h2>
+                </div>
+                <div class="hud__info text--center">
+                    <h3 class="info__title gray--text">LOCATION</h3>
+                    <h2 class="info__result result--text" id="location">Fetching Data...</h2>
+                </div>
+                <div class="hud__info text--center">
+                    <h3 class="info__title gray--text">TIMEZONE</h3>
+                    <h2 class="info__result result--text" id="timezone">Fetching Data...</h2>
+                </div>
+                <div class="hud__info text--center">
+                    <h3 class="info__title gray--text">ISP</h3>
+                    <h2 class="info__result result--text" id="isp">Fetching Data...</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- *Map div -->
+    <div id="map-id"></div>
+
+    <!-- *Loader div -->
+    <div class="loader-container">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+</body>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+    </script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="app.js"></script>
+<script type="modules" src="api.js"></script>
+
+</html>

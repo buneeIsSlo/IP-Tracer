@@ -1,0 +1,275 @@
+/*---Box Sizing---*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/*---Vairables---*/
+:root {
+    --very-dark-gray: hsl(0, 0%, 17%);
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+
+body {
+    margin: 0;
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    background-image: url("images/pattern-bg.png");
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+
+/*---Common Classes---*/
+.title--center,
+.text--center {
+    text-align: center;
+}
+
+.gray--text {
+    font-size: .6em;
+    color: var(--dark-gray);
+    margin: 0;
+    padding: 0;
+    padding-bottom: .8em;
+}
+
+.result--text {
+    margin: 0;
+    padding: 0;
+    font-size: 1.3em;
+}
+
+.hud__info+.hud__info {
+    margin-top: 1.2rem;
+}
+
+
+/*---Title and Input---*/
+.main {
+    width: 85%;
+    margin: 0 auto;
+    border: 2px solid transparent;
+    max-width: 1200px;
+}
+
+.main__title {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 2rem 0;
+
+}
+
+label {
+    display: flex;
+    justify-content: center;
+
+}
+
+.main__input {
+    padding: 1.2rem;
+    width: 83%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    max-width: 500px;
+}
+
+.main__input,
+.main__input::placeholder {
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#search-btn {
+    margin: 0;
+    width: 55px;
+    background-color: var(--very-dark-gray);
+    padding: 1.2rem;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#search-btn:hover {
+    cursor: pointer;
+    background-color: dimgray;
+}
+
+.main__input:focus,
+#search-btn:focus {
+    border: 3px solid lime;
+}
+
+.main__input,
+#search-btn {
+    outline: 0;
+    border: none;
+}
+
+.search-icon {
+    display: grid;
+    place-content: center;
+}
+
+
+/*---HUD Component--- */
+#card {
+    background-color: #fff;
+    padding: 1.2rem 1rem;
+    border-radius: 15px;
+    position: relative;
+    top: 1.5rem;
+    margin-bottom: -15rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    z-index: 2;
+}
+
+
+/*---Map container---*/
+#map-id {
+    height: 512px;
+    margin-top: 10rem;
+    z-index: 1;
+}
+
+
+/*---Loader and Overlay---*/
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    z-index: 10;
+}
+
+.loader span {
+    width: 0px;
+    height: 0px;
+    background-color: darkblue;
+    border-radius: 50%;
+    margin: 0 .5rem;
+    transform: translate3d(0);
+    animation: bounce .6s infinite alternate;
+}
+
+.loader>span:nth-child(2) {
+    background-color: #fff;
+    animation-delay: .2s;
+}
+
+.loader>span:nth-child(3) {
+    background-color: blue;
+    animation-delay: .4s;
+}
+
+@keyframes bounce {
+    to {
+        width: 2rem;
+        height: 2rem;
+        transform: translate3d(0, -16px, 0);
+    }
+}
+
+.loader-container {
+    display: none;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120%;
+    display: none;
+}
+
+
+/*---Media-queries---*/
+
+@media (min-width: 800px) {
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gray--text {
+        font-size: .8em;
+    }
+
+    .result--text {
+        font-size: 1.4em;
+        font-weight: 500;
+    }
+
+    .text--center {
+        text-align: left;
+    }
+
+    #card {
+        top: 2.5rem;
+        padding: 1.5rem 1.3rem;
+    }
+
+    .hud__info {
+        padding: .2em .5em;
+    }
+
+    .hud__info+.hud__info {
+        border-left: #eee 2px solid;
+    }
+
+    .hud__info+.hud__info {
+        margin-top: 0rem;
+    }
+
+    #map-id {
+        margin-top: 12.2rem;
+        min-height: 75vh;
+        margin-top: 13rem;
+    }
+
+    .loader {
+        left: 45%;
+    }
+}
+
+@media (min-width: 1120px) {
+
+    .main__title {
+        font-size: 2em;
+    }
+
+    #card {
+        top: 2.5rem;
+        padding: 2rem 2rem;
+    }
+
+    .result--text {
+        font-size: 1.8em;
+    }
+
+    .hud__info {
+        padding: .5em 1.5em;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .result--text {
+        font-size: 1.9em;
+    }
+
+    #map-id {
+        margin-top: 12.2rem;
+        min-height: 67.2vh;
+        scroll-behavior: smooth;
+    }
+}
