@@ -20,11 +20,11 @@
         <!-- *Header and Input -->
         <header class="header">
             <h1 class="main__title title--center">IP Address Tracker</h1>
-            <label for="trace-ip" class="main__input__label">
+            <div for="trace-ip" class="main__input__label">
                 <input type="search" class="main__input" id="trace-ip" aria-label="Trace IP"
                     placeholder="Search for any IP">
-                <button id="search-btn"><img src="images/icon-arrow.svg" alt="" class="search-icon"></button>
-            </label>
+                <button id="search-btn" aria-label="Search"><img src="images/icon-arrow.svg" alt="" class="search-icon"></button>
+            </div>
         </header>
 
         <!-- *HUD -->
@@ -69,6 +69,5 @@
     </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="app.js"></script>
-<script type="modules" src="api.js"></script>
 
 </html>
