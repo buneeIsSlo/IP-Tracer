@@ -63,10 +63,9 @@ body {
 
 }
 
-label {
+#trace-ip {
     display: flex;
     justify-content: center;
-
 }
 
 .main__input {
