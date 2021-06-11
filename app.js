@@ -11,7 +11,7 @@ const createTileType = (type) => {
 }
 
 //* Map constants
-const IPIFY_KEY = "at_lueevU07zkY9UoaiCSElmAzxpCrC6";
+const IPIFY_KEY = "at_neW31R8bnl0G95cCUuPNegp4PNjov";
 const satelliteView = createTileType("mapbox/satellite-v9");
 const streetsView = createTileType("mapbox/streets-v11");
 const myMap = L.map("map-id", {
