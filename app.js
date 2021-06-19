@@ -17,6 +17,7 @@ const streetsView = createTileType("mapbox/streets-v11");
 const myMap = L.map("map-id", {
     zoomControl: false,
 });
+const layers = L.layerGroup();
 const marker = L.icon({
     iconUrl: "images/icon-location.svg",
 });
@@ -145,15 +146,16 @@ const hudCard = (ip, location, timezone, isp) => {
 
 //* Set the map view 
 const mapInit = (gpsLat, gpsLng) => {
-
+    if(myMap.hasLayer(layers)) layers.clearLayers(); //* If map already exist, It is cleared (This is to avoid multiple markers).
+    
     myMap.setView([gpsLat, gpsLng], 14)
-
     streetsView.addTo(myMap);
-
-    L.marker([gpsLat, gpsLng], {
+     
+    layers.addLayer(L.marker([gpsLat, gpsLng], {
         icon: marker
-    }).addTo(myMap);
-
+    }));
+    myMap.addLayer(layers);
+ 
     loaderStatus("none"); // Remove loader overlay
 }
 L.control.zoom({ position: "bottomright" }).addTo(myMap); //* Zoom Control
